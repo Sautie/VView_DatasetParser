@@ -601,18 +601,3 @@ ReqPatientsSuperAll<- function (s_dir1, s_file1, d) {
   write.csv(df, s_path,row.names=FALSE)
   
 }
-
-
- all_Disease_CodComm <- function (data, data2) {
-   cobj<-c()
-   for(i in 1:length(data)){
-         ob<-SV_Disease$new(name=data$DX_CODEE[i], date=data$DERNIERE_MODIF_LE[i], ID_patient=data$UID_NUMERO_PATIENT[i], ID_visite=data$UID_VISITE[i])
-         cobj<-append(cobj, ob)
-          }
-   for(i in 1:length(data2)){
-         ob<-SV_Disease$new(name=data2$DX_COMMENT[i], date=data2$DERNIERE_MODIF_LE[i], ID_patient=data2$UID_NUMERO_PATIENT[i], ID_visite=data2$UID_VISITE[i])
-         cobj<-append(cobj, ob)
-          }
-
-   return( cobj)
- }
